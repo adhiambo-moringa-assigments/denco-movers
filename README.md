@@ -33,3 +33,6 @@
 
 ## Support
  - Evelyne Atieno - https://github.com/eve-atieno
+
+## Author
+- Evelyne Atieno
