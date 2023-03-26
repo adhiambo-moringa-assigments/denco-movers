@@ -1,5 +1,6 @@
 import React from 'react'
 import Footer from './Footer'
+import GettingStarted from './GettingStarted'
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
     </div>
     </div>
     </div>
+    <GettingStarted/>
     <Footer/>
     </>
   )
