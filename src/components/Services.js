@@ -7,7 +7,7 @@ const Services = () => {
 
     <div>
       <div class="max-w-sm rounded overflow-hidden shadow-lg mt-5 mx-5">
-      <img class="w-full" src="../images/commercial.jpg" alt="Sunset in the mountains"/>
+      <img class="w-full" src="../images/move.jpg" alt="Sunset in the mountains"/>
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2 font-serif">Home Moving</div>
         <p class="text-gray-700 text-base font-serif">
@@ -23,7 +23,7 @@ const Services = () => {
 
     <div>
       <div class="max-w-sm rounded overflow-hidden shadow-lg mt-5 mx-5">
-      <img class="w-full" src="../images/office.jpg" alt="Sunset in the mountains"/>
+      <img class="w-full" src="../images/local.jpg" alt="Sunset in the mountains"/>
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2 font font-serif">Local Moving</div>
         <p class="text-gray-700 text-base font-serif">
@@ -39,7 +39,7 @@ const Services = () => {
 
     <div>
       <div class="max-w-sm rounded overflow-hidden shadow-lg mt-5 mx-5">
-      <img class="w-full" src="../images/loading.jpg" alt="Sunset in the mountains"/>
+      <img class="w-full" src="../images/fumigation.jpg" alt="Sunset in the mountains"/>
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2 font font-serif">Fumigation/Pest Control</div>
         <p class="text-gray-700 text-base font-serif" >
@@ -58,7 +58,7 @@ const Services = () => {
 
     <div>
       <div class="max-w-sm rounded overflow-hidden shadow-lg mt-5 mx-5">
-      <img class="w-full" src="../images/commercial.jpg" alt="Sunset in the mountains"/>
+      <img class="w-full" src="../images/cleaning.jpg" alt="Sunset in the mountains"/>
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2 font-serif">Moving in/Out Cleanig</div>
         <p class="text-gray-700 text-base font-serif">
@@ -74,7 +74,7 @@ const Services = () => {
 
     <div>
       <div class="max-w-sm rounded overflow-hidden shadow-lg mt-5 mx-5">
-      <img class="w-full" src="../images/office.jpg" alt="Sunset in the mountains"/>
+      <img class="w-full" src="../images/packing.jpg" alt="Sunset in the mountains"/>
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2 font font-serif">Packing/Unpacking</div>
         <p class="text-gray-700 text-base font-serif">
@@ -90,7 +90,7 @@ const Services = () => {
 
     <div>
       <div class="max-w-sm rounded overflow-hidden shadow-lg mt-5 mx-5">
-      <img class="w-full" src="../images/loading.jpg" alt="Sunset in the mountains"/>
+      <img class="w-full" src="../images/CcTv.jpg" alt="Sunset in the mountains"/>
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2 font font-serif">CCTV Installation</div>
         <p class="text-gray-700 text-base font-serif" >
@@ -103,7 +103,7 @@ const Services = () => {
       </div>
     </div>
     </div>
-    </div>
+   </div>
 
     <div className='text-center m-5'>
         <button className="bg-yellow-400 font-serif text-white text-center font-bold rounded border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
