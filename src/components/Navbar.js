@@ -27,6 +27,9 @@ const Navbar = () => {
       <Link to='/contact' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
         Contact
       </Link>
+      <Link to='/si' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
+        SignUp
+      </Link>
       </div>
   </div>
 </nav>

@@ -26,10 +26,10 @@ const ContactForm = () => {
   };
   
   return (
-<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-  <div style={{ width: '50%' }}>
+<div  className="flex justify-items-center">
+  <div>
     <h3>SEND US MESSAGE</h3>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="container grid grid-rows-4 grid-flow-col gap-4"  >
       <label>
         Name *
         <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
