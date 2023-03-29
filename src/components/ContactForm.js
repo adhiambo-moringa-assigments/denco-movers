@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 
-const ContactForm = ({services}) => {
+
+
+const ContactForm = ({contacts}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [service, setService] = useState('');
+  // const [service, setService] = useState('');
   const [movingFrom, setMovingFrom] = useState('');
   const [movingTo, setMovingTo] = useState('');
   const [houseSize, setHouseSize] = useState('');
   const [movingDate, setMovingDate] = useState('');
   const [additionalServices, setAdditionalServices] = useState('');
   
-  const [serviceId, setServiceId] = React.useState(services.service_id);
+  const [selectedServiceId, setSelectedServiceId] = React.useState(contacts.service_id);
     
 
   function handleSelectChange(event) {
-    setServiceId(event.target.value);
+    setSelectedServiceId(event.target.value);
   }
 
 
@@ -31,9 +33,6 @@ const ContactForm = ({services}) => {
     setPhone(event.target.value);
   }
 
-  function handleServiceChange(event) {
-    setService(event.target.value);
-  }
 
   function handleMovingFromChange(event) {
     setMovingFrom(event.target.value);
@@ -61,7 +60,7 @@ const ContactForm = ({services}) => {
       name: name,
       email: email,
       phone: phone,
-      service_id: serviceId,
+      service_id: selectedServiceId,
       moving_from: movingFrom,
       moving_to: movingTo,
       house_size: houseSize,
@@ -86,9 +85,9 @@ const ContactForm = ({services}) => {
   }
   
   return (
-<div  className="flex ml-12">
+<div  className="flex ml-12 ">
   <div>
-    <h3>SEND US MESSAGE</h3>
+    <h3 className='text-center text-xl text-yellow-400'>SEND US MESSAGE</h3>
   
   <div className="text-center ml-12">
     
@@ -107,12 +106,14 @@ const ContactForm = ({services}) => {
       </label>
       <label>
         Select Service *
-        <select value={serviceId} 
+        <select value={selectedServiceId} 
         onChange={handleSelectChange}>
           <option value="">-- Select a service --</option>
-          {services.map((service) => (
-            <option key={service.id} value={service.name}>
-              {service.name}
+          {contacts.map((contact) => (
+            <option 
+            key= {contact.service_id}
+             value={contact.id}>
+              {contact.name}
             </option>
           ))}
          
@@ -138,14 +139,14 @@ const ContactForm = ({services}) => {
         Additional Services
         <textarea value={additionalServices} onChange={(event) => setAdditionalServices(event.target.value)} />
       </label>
-      <button type="submit">Submit</button>
+      <button type='submit' className="bg-yellow-400 text-white font-medium rounded-full py-3 px-8 hover:bg-gray-300 hover:text-black transition-colors duration-300">Submit</button>
     </form>
   </div>
 </div>
 
 
-  <div className='ml-20 mt-10'>
-    <h3>CONTACT INFO</h3>
+  <div backgroundimage='' className='ml-20 mt-10 text-lg'>
+    <h3 className='text-4xl'>CONTACT INFO</h3>
     <p>Ngong Road Nairobi Kenya</p>
     <p>Phone: 0705898902</p>
     <p>Email: info@DencoMovers.co.ke</p>

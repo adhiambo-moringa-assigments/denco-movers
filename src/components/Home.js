@@ -12,7 +12,8 @@ const Home = () => {
           <h1 className="text-6xl font-serif mb-4">Welcome to</h1>
           <h1 className="text-6xl font-bold mb-4"><span className="text-yellow-400">DENCO MOVERS</span></h1>
           <h2 className="text-3xl font-serif font-medium mb-8">We pride ourselves by serving the best to our customers</h2>
-          <button className="bg-yellow-400 text-white font-medium rounded-full py-3 px-8 hover:bg-gray-300 hover:text-black transition-colors duration-300">Move With Us</button>
+          
+          <button variant="success" href="/GettingStarted" className="bg-yellow-400 text-white font-medium rounded-full py-3 px-8 hover:bg-gray-300 hover:text-black transition-colors duration-300">Move With Us</button>
         </div>
       </div>
       <GettingStarted/>

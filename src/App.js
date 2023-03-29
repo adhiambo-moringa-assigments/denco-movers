@@ -8,18 +8,20 @@ import Services from './components/Services';
 import ContactForm from './components/ContactForm';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import GettingStarted from './components/GettingStarted';
+
 
 function App() {
 
-  const [services,setServices]=useState([])
+  const [contacts,setContacts]=useState([])
 
   useEffect(()=>{
       fetch('/services')
       .then(res=>res.json())
-      .then(data=>setServices(data))
+      .then(data=>setContacts(data))
   }
   ,[])
-  console.log(services)
+  console.log(contacts)
 
   return (
     <div>
@@ -29,11 +31,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
+        <Route path='/GettingStarted' element={<GettingStarted/>}/>
         <Route path='/services' element={<Services 
-        services={services}
+        contacts={contacts}
         />}/>
         <Route path='/contact' element={<ContactForm
-        services={services}
+        contacts={contacts}
         />}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/login' element={<Login/>}/>
