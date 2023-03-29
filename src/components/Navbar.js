@@ -25,10 +25,10 @@ const Navbar = () => {
         Services
       </Link>
       <Link to='/contact' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
-        Contact
+        Book Now
       </Link>
       <Link to='/login' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
-        SignUp
+        Login
       </Link>
       </div>
   </div>

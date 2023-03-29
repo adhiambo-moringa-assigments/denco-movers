@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Footer from './Footer';
+
 
 
 
@@ -85,9 +87,10 @@ const ContactForm = ({contService}) => {
   }
   
   return (
-<div  className="flex ml-12 ">
+    <>
+<div  className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
   <div>
-    <h3 className='text-center text-xl text-yellow-400'>SEND US MESSAGE</h3>
+    <h3 className='text-center text-4xl text-yellow-400'>SEND US A MESSAGE</h3>
   
   <div className="text-center ml-12">
     
@@ -139,21 +142,19 @@ const ContactForm = ({contService}) => {
         Additional Services
         <textarea value={additionalServices} onChange={(event) => setAdditionalServices(event.target.value)} />
       </label>
-      <button type='submit' className="bg-yellow-400 text-white font-medium rounded-full py-3 px-8 hover:bg-gray-300 hover:text-black transition-colors duration-300">Submit</button>
+      <button type="submit" className="bg-yellow-400 text-white font-medium rounded-full py-3 px-8 hover:bg-gray-300 hover:text-black transition-colors duration-300">Submit</button>
     </form>
+    <div
+  class="mb-4 rounded-lg text-center bg-primary-100 py-5 px-6 text-2xl text-black"
+  role="alert">
+  Thank You For Choosing Us. We Are Happy To Serve You.
+</div>
   </div>
 </div>
 
-
-  <div backgroundimage='' className='ml-20 mt-10 text-lg'>
-    <h3 className='text-4xl'>CONTACT INFO</h3>
-    <p>Ngong Road Nairobi Kenya</p>
-    <p>Phone: 0705898902</p>
-    <p>Email: info@DencoMovers.co.ke</p>
-    <p>Open Sunday – Friday 08:00 – 18:00</p>
-  </div>
 </div>
-
+<Footer/>
+</>
   );
 };
 
