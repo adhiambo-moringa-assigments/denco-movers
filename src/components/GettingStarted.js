@@ -56,7 +56,7 @@ move as smooth as possible.
     </div>
     </div>
     <div className='text-center m-5'>
-        <button className="bg-yellow-400 font-serif text-white text-center font-bold rounded border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
+        <button className="bg-yellow-400 font-serif text-white text-center font-bold rounded-full border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
         <a href='/Services' className='text-white'>See More</a>
         </button>
     </div>

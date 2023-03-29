@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ContactForm = () => {
+const ContactForm = ({services}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -11,25 +11,88 @@ const ContactForm = () => {
   const [movingDate, setMovingDate] = useState('');
   const [additionalServices, setAdditionalServices] = useState('');
   
+  const [serviceId, setServiceId] = React.useState(services.service_id);
+    
+
+  function handleSelectChange(event) {
+    setServiceId(event.target.value);
+  }
+
+
+  function handleNameChange(event) {
+    setName(event.target.value);
+  }
+
+  function handleEmailChange(event) {
+    setEmail(event.target.value);
+  }
+
+  function handlePhoneChange(event) {
+    setPhone(event.target.value);
+  }
+
+  function handleServiceChange(event) {
+    setService(event.target.value);
+  }
+
+  function handleMovingFromChange(event) {
+    setMovingFrom(event.target.value);
+  }
+
+  function handleMovingToChange(event) {
+    setMovingTo(event.target.value);
+  }
+
+  function handleHouseSizeChange(event) {
+    setHouseSize(event.target.value);
+  }
+
+  function handleMovingDateChange(event) {
+    setMovingDate(event.target.value);
+  }
+
+  function handleAdditionalServicesChange(event) {
+    setAdditionalServices(event.target.value);
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const message = `Name: ${name}
-    Email: ${email}
-    Phone Number: ${phone}
-    Select Service: ${service}
-    Moving From: ${movingFrom}
-    Moving To: ${movingTo}
-    House Size: ${houseSize}
-    Moving Date: ${movingDate}
-    Additional Services: ${additionalServices}`;
-    alert(message);
-  };
+    const datat = {
+      name: name,
+      email: email,
+      phone: phone,
+      service_id: serviceId,
+      moving_from: movingFrom,
+      moving_to: movingTo,
+      house_size: houseSize,
+      moving_date: movingDate,
+      additionalServices: additionalServices,
+    };
+    console.log(datat);
+    fetch('/bookings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(datat),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+  });
+  }
   
   return (
-<div  className="flex justify-items-center">
+<div  className="flex ml-12">
   <div>
     <h3>SEND US MESSAGE</h3>
-    <form onSubmit={handleSubmit} className="container grid grid-rows-4 grid-flow-col gap-4"  >
+  
+  <div className="text-center ml-12">
+    
+    <form onSubmit={handleSubmit} className="container grid grid-rows-4 grid-flow-col gap-4 ml-12"  >
       <label>
         Name *
         <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
@@ -44,18 +107,15 @@ const ContactForm = () => {
       </label>
       <label>
         Select Service *
-        <select value={service} onChange={(event) => setService(event.target.value)}>
+        <select value={serviceId} 
+        onChange={handleSelectChange}>
           <option value="">-- Select a service --</option>
-          <option value="Domestic Home Moving">Domestic Home Moving</option>
-          <option value="Office Moving">Office Moving</option>
-          <option value="Commercial Moving">Commercial Moving</option>
-          <option value="Local Moving">Local Moving</option>
-          <option value="Packing/unpacking">Packing/unpacking</option>
-          <option value="Load/unloading">Load/unloading</option>
-          <option value="Moving in and after Moving out Cleaning">Moving in and after Moving out Cleaning</option>
-          <option value="T.V Mounting/Dstv Installation">T.V Mounting/Dstv Installation</option>
-          <option value="CCTV Installation">CCTV Installation</option>
-          <option value="Fumigation/pest control">Fumigation/pest control</option>
+          {services.map((service) => (
+            <option key={service.id} value={service.name}>
+              {service.name}
+            </option>
+          ))}
+         
         </select>
       </label>
       <label>
@@ -81,7 +141,10 @@ const ContactForm = () => {
       <button type="submit">Submit</button>
     </form>
   </div>
-  <div style={{ width: '50%' }}>
+</div>
+
+
+  <div className='ml-20 mt-10'>
     <h3>CONTACT INFO</h3>
     <p>Ngong Road Nairobi Kenya</p>
     <p>Phone: 0705898902</p>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Navbar from './components/Navbar'
 import { BrowserRouter } from 'react-router-dom';
 import Home from './components/Home';
@@ -10,6 +10,17 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 
 function App() {
+
+  const [services,setServices]=useState([])
+
+  useEffect(()=>{
+      fetch('/services')
+      .then(res=>res.json())
+      .then(data=>setServices(data))
+  }
+  ,[])
+  console.log(services)
+
   return (
     <div>
     <BrowserRouter>
@@ -18,8 +29,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
-        <Route path='/services' element={<Services/>}/>
-        <Route path='/contact' element={<ContactForm/>}/>
+        <Route path='/services' element={<Services 
+        services={services}
+        />}/>
+        <Route path='/contact' element={<ContactForm
+        services={services}
+        />}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/login' element={<Login/>}/>
 
