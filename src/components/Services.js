@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-const Services = ({services}) => {
+const Services = ({contService}) => {
   return (
     <>
 <div className="grid grid-cols-1 gap-2 px-28 py-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-    {services.map((service)=>(
+    {contService.map((service)=>(
         <div className='flex flex-col'>
         <div className='flex flex-col'>
         <div class="max-w-sm rounded overflow-hidden shadow-lg mt-5 mx-5">

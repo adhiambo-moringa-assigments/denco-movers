@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 
 
-const ContactForm = ({contacts}) => {
+const ContactForm = ({contService}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -13,7 +13,7 @@ const ContactForm = ({contacts}) => {
   const [movingDate, setMovingDate] = useState('');
   const [additionalServices, setAdditionalServices] = useState('');
   
-  const [selectedServiceId, setSelectedServiceId] = React.useState(contacts.service_id);
+  const [selectedServiceId, setSelectedServiceId] = React.useState(contService.service_id);
     
 
   function handleSelectChange(event) {
@@ -109,7 +109,7 @@ const ContactForm = ({contacts}) => {
         <select value={selectedServiceId} 
         onChange={handleSelectChange}>
           <option value="">-- Select a service --</option>
-          {contacts.map((contact) => (
+          {contService.map((contact) => (
             <option 
             key= {contact.service_id}
              value={contact.id}>

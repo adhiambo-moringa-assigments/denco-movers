@@ -13,15 +13,18 @@ import GettingStarted from './components/GettingStarted';
 
 function App() {
 
-  const [contacts,setContacts]=useState([])
+  const [contService, setContService]=useState([])
 
   useEffect(()=>{
       fetch('/services')
       .then(res=>res.json())
-      .then(data=>setContacts(data))
+      .then (data=>{
+          setContService(data)
+      }
+      )
   }
   ,[])
-  console.log(contacts)
+  console.log(contService)
 
   return (
     <div>
@@ -33,10 +36,10 @@ function App() {
         <Route path='/about' element={<About/>}/>
         <Route path='/GettingStarted' element={<GettingStarted/>}/>
         <Route path='/services' element={<Services 
-        contacts={contacts}
+        contService={contService}
         />}/>
         <Route path='/contact' element={<ContactForm
-        contacts={contacts}
+        contService={contService}
         />}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/login' element={<Login/>}/>
