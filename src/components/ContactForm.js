@@ -138,6 +138,7 @@ const ContactForm = ({contService}) => {
         Moving Date *
         <input type="date" value={movingDate} onChange={(event) => setMovingDate(event.target.value)} />
       </label>
+      
       <label>
         Additional Services
         <textarea value={additionalServices} onChange={(event) => setAdditionalServices(event.target.value)} />

@@ -9,6 +9,7 @@ import ContactForm from './components/ContactForm';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import GettingStarted from './components/GettingStarted';
+import AuthProvider from './components/AuthContext';
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
   return (
     <div>
     <BrowserRouter>
-     
+     <AuthProvider>
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -45,8 +46,9 @@ function App() {
         <Route path='/login' element={<Login/>}/>
 
       </Routes>
-     
+     </AuthProvider>
     </BrowserRouter>
+    
     </div>
   );
 }

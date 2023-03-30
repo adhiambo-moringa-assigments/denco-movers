@@ -9,7 +9,7 @@ function SignUp() {
         <h1 className="text-4xl mt-5 text-yellow-400 font-bold">Sign Up</h1>
         <p className="text-gray-black text-2xl">Create an account</p>
         <form className="flex flex-col items-center justify-center mt-8">
-          <div className="w-full mb-5 flex flex-col">
+          <div className="w-full mb-2 flex flex-col">
             <label
               htmlFor="username"
               className="text-gray-500 font-bold mb-2"
@@ -24,7 +24,7 @@ function SignUp() {
               required
             />
           </div>
-          <div className="w-full mb-5 flex flex-col">
+          <div className="w-full mb-2 flex flex-col">
             <label htmlFor="email" className="text-gray-500 font-bold mb-2">
               Email
             </label>
@@ -36,7 +36,7 @@ function SignUp() {
               required
             />
           </div>
-          <div className="w-full mb-5 flex flex-col">
+          <div className="w-full mb-2 flex flex-col">
             <label
               htmlFor="password"
               className="text-gray-500 font-bold mb-2"
@@ -51,7 +51,7 @@ function SignUp() {
               required
             />
           </div>
-          <div className="w-full mb-6 flex flex-col">
+          <div className="w-full mb-2 flex flex-col">
             <label
               htmlFor="confirm-password"
               className="text-gray-500 font-bold mb-2"

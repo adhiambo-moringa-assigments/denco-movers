@@ -18,14 +18,12 @@ const Navbar = () => {
       >
         Home
       </Link>
-      <Link to='/about' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
-        About
-      </Link>
+     
       <Link to='/services' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
         Services
       </Link>
       <Link to='/contact' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
-        Book Now
+        Contact
       </Link>
       <Link to='/login' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
         Login

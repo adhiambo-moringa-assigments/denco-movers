@@ -1,12 +1,13 @@
 import React from 'react';
 import Footer from './Footer';
 import GettingStarted from './GettingStarted';
+import About from './About';
 
 const Home = () => {
   return (
     <>
       <div 
-        className="h-screen flex items-center justify-center bg-cover bg-center"
+        className=" h-screen max-w-full flex items-center justify-center bg-cover bg-center"
         style={{backgroundImage: 'url(../../images/homy.jpg)'}}>
         <div className="text-center text-white">
           <h1 className="text-6xl font-serif mb-4">Welcome to</h1>
@@ -17,7 +18,9 @@ const Home = () => {
         </div>
       </div>
       <GettingStarted/>
+      <About/>
       <Footer/>
+      
     </>
   )
 }

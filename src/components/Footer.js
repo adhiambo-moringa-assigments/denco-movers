@@ -5,22 +5,18 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto py-8 px-4 flex flex-wrap">
         <div className="w-full lg:w-1/3 px-4 mb-8 lg:mb-0">
-          <h2 className="text-lg font-bold mb-2">CONTACT INFO</h2>
-          <p>Ngong Road Nairobi Kenya</p>
+          <h2 className="text-lg font-bold mb-2 text-yellow-400">DENCO Movers</h2>
+          <p className="text-gray-500">At DENCO Movers we make your moving experience easy, we provide you with fast, efficient and reliable services. We are a registered and one of the leading and best moving companies in Kenya that provides you with professional services that reaches your expectations.</p>
+        </div>
+        <div className='w-full lg:w-1/3 px-4 mb-8 lg:mb-0'>
+    <h3 className='text-4xl text-yellow-400'>CONTACT INFO</h3>
+    <p>Ngong Road Nairobi Kenya</p>
     <p>Phone: 0705898902</p>
     <p>Email: info@DencoMovers.co.ke</p>
     <p>Open Sunday – Friday 08:00 – 18:00</p>
-        </div>
+  </div>
         <div className="w-full lg:w-1/3 px-4 mb-8 lg:mb-0">
-          <h2 className="text-lg font-bold mb-2">Quick Links</h2>
-          <ul className="list-none">
-            <li className="mb-2"><a href="#" className="hover:text-gray-400">About Us</a></li>
-            <li className="mb-2"><a href="#" className="hover:text-gray-400">Services</a></li>
-            <li className="mb-2"><a href="#" className="hover:text-gray-400">Contact</a></li>
-          </ul>
-        </div>
-        <div className="w-full lg:w-1/3 px-4 mb-8 lg:mb-0">
-          <h2 className="text-lg font-bold mb-2 ">Follow Us
+          <h2 className="text-lg font-bold mb-2 text-yellow-400">Follow Us
             <svg
     xmlns="http://www.w3.org/2000/svg"
     class="h-7 w-7"
