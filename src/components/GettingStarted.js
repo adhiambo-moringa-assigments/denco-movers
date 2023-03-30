@@ -3,9 +3,9 @@ import React from 'react';
 const GettingStarted = () => {
   return (
     <>
-      <div className='flex flex-row text-center mx-5 px-5 justify-content-center'>
+      <div className='flex flex-row text-center  mx-5 px-5 justify-content-center'>
 
-        <div className="flex-1 max-w-sm rounded overflow-hidden shadow-lg mt-5 mx-5">
+        <div className="flex-1 max-w-sm  hover:shadow-lg dark:hover:shadow-black/30 rounded overflow-hidden bg-slate-50 mt-5 mx-5">
           <img className="w-full h-64 object-cover" src="../images/commercial.jpg" alt="Sunset in the mountains" />
           <div className="px-6 py-4">
             <div className="font-bold text-2xl mb-2 font-serif">Commercial Moving</div>
@@ -15,7 +15,7 @@ const GettingStarted = () => {
           </div>
         </div>
 
-        <div className="flex-1 max-w-sm rounded overflow-hidden shadow-lg mt-5 mx-5">
+        <div className="flex-1 max-w-sm  hover:shadow-lg dark:hover:shadow-black/30 rounded overflow-hidden bg-slate-50 mt-5 mx-5">
           <img className="w-full h-64 object-cover" src="../images/office.jpg" alt="Sunset in the mountains" />
           <div className="px-6 py-4">
             <div className="font-bold text-2xl mb-2 font font-serif">Office Moving</div>
@@ -25,7 +25,7 @@ const GettingStarted = () => {
           </div>
         </div>
 
-        <div className="flex-1 max-w-sm rounded overflow-hidden shadow-lg mt-5 mx-5">
+        <div className="flex-1 max-w-sm rounded  hover:shadow-lg dark:hover:shadow-black/30 overflow-hidden bg-slate-50 mt-5 mx-5">
           <img className="w-full h-64 object-cover" src="../images/loading.jpg" alt="Sunset in the mountains" />
           <div className="px-6 py-4">
             <div className="font-bold text-2xl mb-2 font font-serif">Loading/Unloading</div>

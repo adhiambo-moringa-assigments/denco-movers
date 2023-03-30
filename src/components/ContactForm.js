@@ -5,6 +5,7 @@ import Footer from './Footer';
 
 
 const ContactForm = ({contService}) => {
+  const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -91,7 +92,9 @@ const ContactForm = ({contService}) => {
 <div  className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
   <div>
     <h3 className='text-center text-4xl text-yellow-400'>SEND US A MESSAGE</h3>
-  
+  {isLoggedIn ? (
+    <>
+   
   <div className="text-center ml-12">
     
     <form onSubmit={handleSubmit} className="container grid grid-rows-4 grid-flow-col gap-4 ml-12"  >
@@ -145,12 +148,19 @@ const ContactForm = ({contService}) => {
       </label>
       <button type="submit" className="bg-yellow-400 text-white font-medium rounded-full py-3 px-8 hover:bg-gray-300 hover:text-black transition-colors duration-300">Submit</button>
     </form>
+
     <div
   class="mb-4 rounded-lg text-center bg-primary-100 py-5 px-6 text-2xl text-black"
   role="alert">
   Thank You For Choosing Us. We Are Happy To Serve You.
 </div>
   </div>
+  </>
+  ) : (
+    <div className="text-center ml-12">
+    <h3 className='text-center text-4xl text-yellow-400'>Please Login To Book A Service</h3>
+    </div>
+  )}
 </div>
 
 </div>

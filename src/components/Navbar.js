@@ -1,6 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from './AuthContext'
+import { useContext } from 'react'
+
+
 const Navbar = () => {
+
+  const { logout } = useContext(AuthContext);
+
+  const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
+
+  const triggerLogout = () => {
+    logout();
+  };
+
   return (
     <div>
       <nav class="flex items-center justify-between flex-wrap bg-white-500 p-6">
@@ -22,12 +35,22 @@ const Navbar = () => {
       <Link to='/services' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
         Services
       </Link>
-      <Link to='/contact' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
-        Contact
+      {isLoggedIn ? (
+        <>
+        <Link to='/contact' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
+        Quote
       </Link>
+      <Link onClick ={triggerLogout} to='/login' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
+        Logout
+      </Link>
+        </>
+      ) : (
+        <>
       <Link to='/login' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
         Login
       </Link>
+      </>
+      )}
       </div>
   </div>
 </nav>

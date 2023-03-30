@@ -27,7 +27,7 @@ function Login (){
                     <input 
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                    type="text" placeholder="Password" className="border-2 border-gray-400 rounded-lg w-full h-10 mt-5"></input>
+                    type="password" placeholder="Password" className="border-2 border-gray-400 rounded-lg w-full h-10 mt-5"></input>
                     <button className="px-9 py-3 mb-2 mt-8 text-lg text-white bg-yellow-400 rounded-full shadow-md hover:bg-slate-300">
                         Login
                     </button>
