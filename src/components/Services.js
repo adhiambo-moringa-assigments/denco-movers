@@ -12,19 +12,21 @@ const Services = ({ contService }) => {
                 <img className="w-full h-56 object-cover" src={service.image} alt="Sunset in the mountains" />
                 <div className="px-6 py-4 h-40">
                   <div className="font-bold text-2xl  font-serif">{service.name}</div>
-                  <p className="text-gray-700 text-xl font-serif"><b>Description :</b> {service.description.substring(0, 100)}{service.description.length > 100 ? "..." : ""}</p>
+                  <p className="text-gray-700 text-xl font-serif"> {service.description.substring(0, 100)}{service.description.length > 100 ? "..." : ""}</p>
                   <p>{service.price}</p>
                 </div>
+                <div className="text-center m-5">
+        <button className="bg-yellow-400 font-serif text-white text-center font-bold rounded-full border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
+          <a href="/contact" className="text-white">Get a Quote</a>
+        </button>
+      </div>
               </div>
             </div>
           </div>
         ))}
       </div>
-      <div className="text-center m-5">
-        <button className="bg-yellow-400 font-serif text-white text-center font-bold rounded-full border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
-          <a href="/contact" className="text-white">Get a Quote</a>
-        </button>
-      </div>
+      
+     
       <Footer />
     </>
   )

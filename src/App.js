@@ -10,11 +10,13 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import GettingStarted from './components/GettingStarted';
 import AuthProvider from './components/AuthContext';
+import ViewQuotes from './components/ViewQuotes.js';
 
 
 function App() {
 
   const [contService, setContService]=useState([])
+  const[quote, setQuote] = useState([])
 
   useEffect(()=>{
       fetch('/services')
@@ -27,11 +29,22 @@ function App() {
   ,[])
   console.log(contService)
 
+  useEffect(()=>{
+    fetch('/bookings')
+    .then(res=>res.json())
+    .then (data=>{
+        setQuote(data)
+    }
+    )
+}
+,[])
+console.log(contService)
+
   return (
     <div>
     <BrowserRouter>
      <AuthProvider>
-      <Navbar/>
+      <Navbar quotes={quote}/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
@@ -41,10 +54,11 @@ function App() {
         />}/>
         <Route path='/contact' element={<ContactForm
         contService={contService}
+        setQuote={setQuote}
         />}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/login' element={<Login/>}/>
-
+        <Route path='/viewQuotes' element={<ViewQuotes quotes={quote} setQuote={setQuote}/>}/>
       </Routes>
      </AuthProvider>
     </BrowserRouter>

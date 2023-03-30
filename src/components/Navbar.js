@@ -4,7 +4,7 @@ import { AuthContext } from './AuthContext'
 import { useContext } from 'react'
 
 
-const Navbar = () => {
+const Navbar = ({quotes}) => {
 
   const { logout } = useContext(AuthContext);
 
@@ -51,6 +51,9 @@ const Navbar = () => {
       </Link>
       </>
       )}
+       <Link to='/QuoteApproval' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
+      ViewQuotes
+      </Link>
       </div>
   </div>
 </nav>

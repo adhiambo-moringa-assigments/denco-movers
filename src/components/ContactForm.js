@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 
 
-const ContactForm = ({contService}) => {
+const ContactForm = ({contService,setQuote}) => {
   const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,6 +15,7 @@ const ContactForm = ({contService}) => {
   const [houseSize, setHouseSize] = useState('');
   const [movingDate, setMovingDate] = useState('');
   const [additionalServices, setAdditionalServices] = useState('');
+ 
   
   const [selectedServiceId, setSelectedServiceId] = React.useState(contService.service_id);
     
@@ -80,7 +81,8 @@ const ContactForm = ({contService}) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Success:', data);
+        setQuote(data);
+
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -91,64 +93,56 @@ const ContactForm = ({contService}) => {
     <>
 <div  className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
   <div>
-    <h3 className='text-center text-4xl text-yellow-400'>SEND US A MESSAGE</h3>
+    <h3 className='text-center text-4xl text-yellow-400'>Get A Quote</h3>
   {isLoggedIn ? (
     <>
    
   <div className="text-center ml-12">
     
-    <form onSubmit={handleSubmit} className="container grid grid-rows-4 grid-flow-col gap-4 ml-12"  >
-      <label>
-        Name *
-        <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-      </label>
-      <label>
-        Email *
-        <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-      </label>
-      <label>
-        Phone Number *
-        <input type="tel" value={phone} onChange={(event) => setPhone(event.target.value)} />
-      </label>
-      <label>
-        Select Service *
-        <select value={selectedServiceId} 
-        onChange={handleSelectChange}>
-          <option value="">-- Select a service --</option>
-          {contService.map((contact) => (
-            <option 
-            key= {contact.service_id}
-             value={contact.id}>
-              {contact.name}
-            </option>
-          ))}
-         
-        </select>
-      </label>
-      <label>
-        Moving From *
-        <input type="text" value={movingFrom} onChange={(event) => setMovingFrom(event.target.value)} />
-      </label>
-      <label>
-        Moving To *
-        <input type="text" value={movingTo} onChange={(event) => setMovingTo(event.target.value)} />
-      </label>
-      <label>
-        House Size *
-        <input type="text" value={houseSize} onChange={(event) => setHouseSize(event.target.value)} />
-      </label>
-      <label>
-        Moving Date *
-        <input type="date" value={movingDate} onChange={(event) => setMovingDate(event.target.value)} />
-      </label>
-      
-      <label>
-        Additional Services
-        <textarea value={additionalServices} onChange={(event) => setAdditionalServices(event.target.value)} />
-      </label>
-      <button type="submit" className="bg-yellow-400 text-white font-medium rounded-full py-3 px-8 hover:bg-gray-300 hover:text-black transition-colors duration-300">Submit</button>
-    </form>
-
+  <form onSubmit={handleSubmit} className="container grid grid-rows-4 grid-flow-col gap-4 ml-12">
+  <label className="flex flex-col">
+    <span className="text-lg font-semibold mb-1">Name *</span>
+    <input type="text" className="py-2 px-3 border rounded-lg" value={name} onChange={(event) => setName(event.target.value)} />
+  </label>
+  <label className="flex flex-col">
+    <span className="text-lg font-semibold mb-1">Email *</span>
+    <input type="email" className="py-2 px-3 border rounded-lg" value={email} onChange={(event) => setEmail(event.target.value)} />
+  </label>
+  <label className="flex flex-col">
+    <span className="text-lg font-semibold mb-1">Phone Number *</span>
+    <input type="tel" className="py-2 px-3 border rounded-lg" value={phone} onChange={(event) => setPhone(event.target.value)} />
+  </label>
+  <label className="flex flex-col">
+    <span className="text-lg font-semibold mb-1">Select Service *</span>
+    <select className="py-2 px-3 border rounded-lg" value={selectedServiceId} onChange={handleSelectChange}>
+      <option value="">-- Select a service --</option>
+      {contService.map((contact) => (
+        <option key={contact.service_id} value={contact.id}>
+          {contact.name}
+        </option>
+      ))}
+    </select>
+  </label>
+  <label className="flex flex-col">
+    <span className="text-lg font-semibold mb-1">Moving From *</span>
+    <input type="text" className="py-2 px-3 border rounded-lg" value={movingFrom} onChange={(event) => setMovingFrom(event.target.value)} />
+  </label>
+  <label className="flex flex-col">
+    <span className="text-lg font-semibold mb-1">Moving To *</span>
+    <input type="text" className="py-2 px-3 border rounded-lg" value={movingTo} onChange={(event) => setMovingTo(event.target.value)} />
+  </label>
+  <label className="flex flex-col">
+    <span className="text-lg font-semibold mb-1">House Size *</span>
+    <input type="text" className="py-2 px-3 border rounded-lg" value={houseSize} onChange={(event) => setHouseSize(event.target.value)} />
+  </label>
+  <label className="flex flex-col">
+    <span className="text-lg font-semibold mb-1">Moving Date *</span>
+    <input type="date" className="py-2 px-3 border rounded-lg" value={movingDate} onChange={(event) => setMovingDate(event.target.value)} />
+  </label>
+</form>
+<button className="bg-yellow-400 font-serif mt-5 text-white text-center font-bold rounded-full border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
+          <a href='/Services' className='text-white'>Submit</a>
+        </button>
     <div
   class="mb-4 rounded-lg text-center bg-primary-100 py-5 px-6 text-2xl text-black"
   role="alert">
