@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Footer from './Footer';
+import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from './AuthContext';
 
 
 
@@ -14,62 +17,62 @@ const ContactForm = ({contService,setQuote}) => {
   const [movingTo, setMovingTo] = useState('');
   const [houseSize, setHouseSize] = useState('');
   const [movingDate, setMovingDate] = useState('');
-  const [additionalServices, setAdditionalServices] = useState('');
+  const [destinations, setDestinations] = useState('');
  
-  
-  const [selectedServiceId, setSelectedServiceId] = React.useState(contService.service_id);
-    
+  const {id} = useParams();
+  const value =useContext(AuthContext);
+  console.log(value)
 
-  function handleSelectChange(event) {
-    setSelectedServiceId(event.target.value);
-  }
-
-
-  function handleNameChange(event) {
+   const handleNameChange = (event) => {
     setName(event.target.value);
-  }
-
-  function handleEmailChange(event) {
+  };
+  const handleEmailChange = (event) => {
     setEmail(event.target.value);
-  }
+  };
+  const handlePhoneChange = (event) => {
+    setPhone(event.target.value)
+  };
 
-  function handlePhoneChange(event) {
-    setPhone(event.target.value);
-  }
-
-
-  function handleMovingFromChange(event) {
+    const handleMovingFromChange = (event) => {
     setMovingFrom(event.target.value);
-  }
+  };
 
-  function handleMovingToChange(event) {
+  const handleMovingToChange = (event) => {
     setMovingTo(event.target.value);
-  }
+  };
 
-  function handleHouseSizeChange(event) {
+  const handleHouseSizeChange = (event) => {
     setHouseSize(event.target.value);
-  }
+  };
 
-  function handleMovingDateChange(event) {
+  const handleMovingDateChange = (event) => {
     setMovingDate(event.target.value);
-  }
+  };
 
-  function handleAdditionalServicesChange(event) {
-    setAdditionalServices(event.target.value);
-  }
+  useEffect(() => {
+    console.log(value)
+    fetch(`/Services${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setDestinations(data);
+      })
+      .catch((error) => console.error(error));
+  }, [id]);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const datat = {
       name: name,
+      user_id: value.user.user.id,
       email: email,
       phone: phone,
-      service_id: selectedServiceId,
+      service_id: id,
       moving_from: movingFrom,
       moving_to: movingTo,
       house_size: houseSize,
       moving_date: movingDate,
-      additionalServices: additionalServices,
+
     };
     console.log(datat);
     fetch('/bookings', {
@@ -82,13 +85,14 @@ const ContactForm = ({contService,setQuote}) => {
       .then((response) => response.json())
       .then((data) => {
         setQuote(data);
-
+        console.log('Success:', data);
       })
       .catch((error) => {
         console.error('Error:', error);
   });
-  }
-  
+  };
+
+
   return (
     <>
 <div  className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -102,47 +106,58 @@ const ContactForm = ({contService,setQuote}) => {
   <form onSubmit={handleSubmit} className="container grid grid-rows-4 grid-flow-col gap-4 ml-12">
   <label className="flex flex-col">
     <span className="text-lg font-semibold mb-1">Name *</span>
-    <input type="text" className="py-2 px-3 border rounded-lg" value={name} onChange={(event) => setName(event.target.value)} />
+    <input
+      value={name}
+      onChange={handleNameChange}
+     type="text" className="py-2 px-3 border rounded-lg"  />
   </label>
   <label className="flex flex-col">
     <span className="text-lg font-semibold mb-1">Email *</span>
-    <input type="email" className="py-2 px-3 border rounded-lg" value={email} onChange={(event) => setEmail(event.target.value)} />
+    <input 
+      value={email}
+      onChange={handleEmailChange}
+    type="email" className="py-2 px-3 border rounded-lg"  />
   </label>
   <label className="flex flex-col">
     <span className="text-lg font-semibold mb-1">Phone Number *</span>
-    <input type="tel" className="py-2 px-3 border rounded-lg" value={phone} onChange={(event) => setPhone(event.target.value)} />
-  </label>
-  <label className="flex flex-col">
-    <span className="text-lg font-semibold mb-1">Select Service *</span>
-    <select className="py-2 px-3 border rounded-lg" value={selectedServiceId} onChange={handleSelectChange}>
-      <option value="">-- Select a service --</option>
-      {contService.map((contact) => (
-        <option key={contact.service_id} value={contact.id}>
-          {contact.name}
-        </option>
-      ))}
-    </select>
+    <input 
+      value={phone}
+      onChange={handlePhoneChange}
+    type="tel" className="py-2 px-3 border rounded-lg"  />
   </label>
   <label className="flex flex-col">
     <span className="text-lg font-semibold mb-1">Moving From *</span>
-    <input type="text" className="py-2 px-3 border rounded-lg" value={movingFrom} onChange={(event) => setMovingFrom(event.target.value)} />
+    <input 
+      value={movingFrom}
+      onChange={handleMovingFromChange}
+    type="text" className="py-2 px-3 border rounded-lg"  />
   </label>
   <label className="flex flex-col">
     <span className="text-lg font-semibold mb-1">Moving To *</span>
-    <input type="text" className="py-2 px-3 border rounded-lg" value={movingTo} onChange={(event) => setMovingTo(event.target.value)} />
+    <input 
+      value={movingTo}
+      onChange={handleMovingToChange}
+    type="text" className="py-2 px-3 border rounded-lg" />
   </label>
   <label className="flex flex-col">
     <span className="text-lg font-semibold mb-1">House Size *</span>
-    <input type="text" className="py-2 px-3 border rounded-lg" value={houseSize} onChange={(event) => setHouseSize(event.target.value)} />
+    <input 
+      value={houseSize}
+      onChange={handleHouseSizeChange}
+    type="text" className="py-2 px-3 border rounded-lg"  />
   </label>
   <label className="flex flex-col">
     <span className="text-lg font-semibold mb-1">Moving Date *</span>
-    <input type="date" className="py-2 px-3 border rounded-lg" value={movingDate} onChange={(event) => setMovingDate(event.target.value)} />
+    <input 
+      value={movingDate}
+      onChange={handleMovingDateChange}
+    type="date" className="py-2 px-3 border rounded-lg" />
   </label>
-</form>
-<button className="bg-yellow-400 text-white font-medium rounded-full py-3 px-8 hover:bg-gray-300 hover:text-black mt-5 transition-colors duration-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
-          <a href='/Services' className='text-white'>Submit</a>
+  <button className="bg-yellow-400 text-white font-medium rounded-full py-3 px-8 hover:bg-gray-300 hover:text-black mt-5 transition-colors duration-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
+       Submit
         </button>
+</form>
+
     <div
   class="mb-4 rounded-lg text-center bg-primary-100 py-5 px-6 text-2xl text-black"
   role="alert">

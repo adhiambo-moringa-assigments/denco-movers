@@ -26,7 +26,7 @@ export default function AuthProvider({ children }) {
       .then((res) => res.json())
       .then((response) => {
         // console.log(email);
-        console.log(response);
+        // console.log(response);
 
         setOnChange(!change);
 

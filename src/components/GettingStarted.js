@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const GettingStarted = () => {
   return (
@@ -38,9 +39,12 @@ const GettingStarted = () => {
       </div>
 
       <div className='text-center m-5'>
+        <Link to="/services">
         <button className="bg-yellow-400 font-serif text-white text-center font-bold rounded-full border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
-          <a href='/Services' className='text-white'>See More</a>
+        See More
         </button>
+        </Link>
+        
       </div>
     </>
   )

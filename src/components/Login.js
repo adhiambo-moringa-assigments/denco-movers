@@ -23,7 +23,7 @@ function Login (){
                     <input 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                    type="text" placeholder="Username" className="border-2 border-gray-4 rounded-lg   mt-5"></input>
+                    type="text" placeholder="Email" className="border-2 border-gray-4 rounded-lg   mt-5"></input>
                     <input 
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}

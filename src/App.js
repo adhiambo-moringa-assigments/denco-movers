@@ -27,8 +27,6 @@ function App() {
       )
   }
   ,[])
-  console.log(contService)
-
   useEffect(()=>{
     fetch('/bookings')
     .then(res=>res.json())
@@ -38,7 +36,7 @@ function App() {
     )
 }
 ,[])
-console.log(contService)
+
 
   return (
     <div>
@@ -52,7 +50,7 @@ console.log(contService)
         <Route path='/services' element={<Services 
         contService={contService}
         />}/>
-        <Route path='/contact' element={<ContactForm
+        <Route path='/contact/:id' element={<ContactForm
         contService={contService}
         setQuote={setQuote}
         />}/>

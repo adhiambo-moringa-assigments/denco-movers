@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 const Services = ({ contService }) => {
   return (
@@ -16,9 +17,12 @@ const Services = ({ contService }) => {
                   <p>{service.price}</p>
                 </div>
                 <div className="text-center m-5">
+                  <Link to={`/contact/${service.id}`}>
         <button className="bg-yellow-400 font-serif text-white text-center font-bold rounded-full border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
-          <a href="/contact" className="text-white">Get a Quote</a>
+          {/* <a href="/contact" className="text-white">Get a Quote</a> */}
+             Get a Quote
         </button>
+        </Link>
       </div>
               </div>
             </div>
