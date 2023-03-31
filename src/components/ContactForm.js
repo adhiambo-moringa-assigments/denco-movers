@@ -93,11 +93,11 @@ const ContactForm = ({contService,setQuote}) => {
     <>
 <div  className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
   <div>
-    <h3 className='text-center text-4xl text-yellow-400'>Get A Quote</h3>
+    <h3 className='text-center text-6xl mt-6 mb-4 text-yellow-400'>Get A Quote</h3>
   {isLoggedIn ? (
     <>
    
-  <div className="text-center ml-12">
+  <div className="text-center font-serif ml-12">
     
   <form onSubmit={handleSubmit} className="container grid grid-rows-4 grid-flow-col gap-4 ml-12">
   <label className="flex flex-col">
@@ -140,7 +140,7 @@ const ContactForm = ({contService,setQuote}) => {
     <input type="date" className="py-2 px-3 border rounded-lg" value={movingDate} onChange={(event) => setMovingDate(event.target.value)} />
   </label>
 </form>
-<button className="bg-yellow-400 font-serif mt-5 text-white text-center font-bold rounded-full border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
+<button className="bg-yellow-400 text-white font-medium rounded-full py-3 px-8 hover:bg-gray-300 hover:text-black mt-5 transition-colors duration-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
           <a href='/Services' className='text-white'>Submit</a>
         </button>
     <div
