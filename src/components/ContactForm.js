@@ -22,6 +22,8 @@ const ContactForm = ({contService,setQuote}) => {
   const {id} = useParams();
   const value =useContext(AuthContext);
   console.log(value)
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  console.log(user);
 
    const handleNameChange = (event) => {
     setName(event.target.value);
@@ -49,22 +51,22 @@ const ContactForm = ({contService,setQuote}) => {
     setMovingDate(event.target.value);
   };
 
-  useEffect(() => {
-    console.log(value)
-    fetch(`/Services${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setDestinations(data);
-      })
-      .catch((error) => console.error(error));
-  }, [id]);
+  // useEffect(() => {
+  //   console.log(value)
+  //   fetch(`/Services${id}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setDestinations(data);
+  //     })
+  //     .catch((error) => console.error(error));
+  // }, [id]);
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const datat = {
       name: name,
-      user_id: value.user.user.id,
+      usr_id: user.id,
       email: email,
       phone: phone,
       service_id: id,
@@ -75,7 +77,7 @@ const ContactForm = ({contService,setQuote}) => {
 
     };
     console.log(datat);
-    fetch('/bookings', {
+    fetch('https://denco.onrender.com/books', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -90,6 +92,14 @@ const ContactForm = ({contService,setQuote}) => {
       .catch((error) => {
         console.error('Error:', error);
   });
+  setName ('');
+  setEmail ('');
+  setPhone ('');
+  setMovingFrom ('');
+  setMovingTo ('');
+  setHouseSize ('');
+  setMovingDate ('');
+
   };
 
 

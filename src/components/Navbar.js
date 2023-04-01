@@ -37,9 +37,6 @@ const Navbar = ({quotes}) => {
       </Link>
       {isLoggedIn ? (
         <>
-        <Link to='/contact' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
-        Quote
-      </Link>
       <Link onClick ={triggerLogout} to='/login' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
         Logout
       </Link>
@@ -51,7 +48,7 @@ const Navbar = ({quotes}) => {
       </Link>
       </>
       )}
-       <Link to='/QuoteApproval' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
+       <Link to='/ViewQuotes' class="block mt-4 mx-5 lg:inline-block lg:mt-0 text-black hover:text-yellow-400 mr-4">
       ViewQuotes
       </Link>
       </div>

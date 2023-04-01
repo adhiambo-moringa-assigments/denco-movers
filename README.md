@@ -19,6 +19,8 @@
 
 - Selects any additional services they need (e.g. packing/unpacking, TV mounting, etc.).
 
+- To view the services they have chosen
+
 ## What was used
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/keithkiama/phase-2-group-2-nasa-group-project/blob/master/LICENSE)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat&logo=postman&logoColor=white)

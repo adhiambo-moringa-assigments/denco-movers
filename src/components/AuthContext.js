@@ -13,7 +13,7 @@ export default function AuthProvider({ children }) {
 
   // login
   const login = (email, password) => {
-    fetch("/login", {
+    fetch("https://denco.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,6 +40,7 @@ export default function AuthProvider({ children }) {
           });
         } else if (response.user) {
           setUser(response);
+          sessionStorage.setItem("user", JSON.stringify(response.user));
           sessionStorage.setItem("jwtToken", response.jwt);
           Swal.fire({
             position: "center",
@@ -57,7 +58,7 @@ export default function AuthProvider({ children }) {
 
   // Register
   const register = (name, email, password) => {
-    fetch("/signup", {
+    fetch("https://denco.onrender.com/usrs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +89,7 @@ export default function AuthProvider({ children }) {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/");
+          navigate("/login");
         }
       });
   };
@@ -116,7 +117,7 @@ export default function AuthProvider({ children }) {
 
   // check if user is logged in
   useEffect(() => {
-    fetch("/loggedin", {
+    fetch("https://denco.onrender.com/loggedin", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
