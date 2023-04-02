@@ -136,6 +136,24 @@ export default function AuthProvider({ children }) {
     register,
     logout,
   };
+console.log(user)
+// fetch user
+  useEffect(() => {
+    fetch("https://denco.onrender.com/", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        console.log(response)
+      
+      });
+  }, []);
+
+
+
 
   return (
     <>
