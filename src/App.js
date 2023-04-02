@@ -11,11 +11,13 @@ import Login from './components/Login';
 import GettingStarted from './components/GettingStarted';
 import AuthProvider from './components/AuthContext';
 import ViewQuotes from './components/ViewQuotes.js';
+import Footer from './components/Footer';
 
 function App() {
   const [contService, setContService] = useState([]);
   const [quote, setQuote] = useState([]);
   const [selectedServices, setSelectedServices] = useState([]);
+  const[service,setService] = useState([]);
 
   const handleServiceSelection = (service) => {
     setSelectedServices((prevServices) => [...prevServices, service]);
@@ -51,6 +53,8 @@ function App() {
               path="/services"
               element={
                 <Services
+                service = {service}
+                setService = {setService}
                   contService={contService}
                   handleServiceSelection={handleServiceSelection}
                 />
@@ -62,6 +66,7 @@ function App() {
                 <ContactForm
                   contService={contService}
                   setQuote={setQuote}
+                  quote={quote}
                   selectedServices={selectedServices}
                 />
               }
@@ -69,10 +74,12 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
             <Route
+            service = {service}
               path="/viewQuotes"
               element={<ViewQuotes services={selectedServices} />}
             />
           </Routes>
+          <Footer />
         </AuthProvider>
       </BrowserRouter>
     </div>

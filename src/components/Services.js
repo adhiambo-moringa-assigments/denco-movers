@@ -1,8 +1,19 @@
 import React from 'react';
-import Footer from './Footer';
 import { Link } from 'react-router-dom';
 
-const Services = ({ contService }) => {
+const Services = ({ contService, setService }) => {
+
+  function handleClick(service_id) {
+  fetch (`https://denco.onrender.com/services/${service_id}`)
+  .then((res) => res.json())
+  .then((data) => {
+    setService(data);
+    console.log(("data", data))
+  });
+
+   
+  }
+  
   return (
     <>
       <div className="grid grid-cols-1 gap-2 px-28 py-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
@@ -18,7 +29,7 @@ const Services = ({ contService }) => {
                 </div>
                 <div className="text-center m-5">
                   <Link to={`/contact/${service.id}`}>
-        <button className="bg-yellow-400 font-serif text-white text-center font-bold rounded-full border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
+        <button onClick={handleClick(service.id)} className="bg-yellow-400 font-serif text-white text-center font-bold rounded-full border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-300 shadow-md py-2 px-6 inline-flex items-center">
           {/* <a href="/contact" className="text-white">Get a Quote</a> */}
              Get a Quote
         </button>
@@ -29,9 +40,6 @@ const Services = ({ contService }) => {
           </div>
         ))}
       </div>
-      
-     
-      <Footer />
     </>
   )
 }

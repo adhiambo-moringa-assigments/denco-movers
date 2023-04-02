@@ -1,13 +1,12 @@
 import React, { useState,useEffect } from 'react';
-import Footer from './Footer';
 import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from './AuthContext';
+import ViewQuotes from './ViewQuotes';
+import {Route,Routes} from 'react-router-dom';
 
 
-
-
-const ContactForm = ({contService,setQuote}) => {
+const ContactForm = ({quote,setQuote}) => {
   const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -183,7 +182,10 @@ const ContactForm = ({contService,setQuote}) => {
 </div>
 
 </div>
-<Footer/>
+<Routes>
+<Route path="/viewquotes" component={ViewQuotes} element={<ViewQuotes quotes={quote} />} />
+</Routes>
+
 </>
   );
 };
